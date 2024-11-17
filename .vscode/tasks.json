@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "OpenMPI: mpicc build active file",
+            "command": "/opt/homebrew/bin/mpicc",
+            "args": [
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "${file}",
+                "-I/opt/homebrew/include", // Ruta a los headers de OpenMPI
+                "-L/opt/homebrew/lib", // Ruta a las bibliotecas de OpenMPI
+                "-lmpi"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
